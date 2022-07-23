@@ -70,6 +70,11 @@ var check = &cli.Command{
 
 		for _, account := range account.Data.Account[0].Lists {
 			name := account.BankName
+			dtime := account.Dtime
+
+			if dtime != 0 {
+				continue
+			}
 			if name == "" || name == "自定义" {
 				name = account.Name
 			}
